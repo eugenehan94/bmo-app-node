@@ -12,6 +12,7 @@ let corsOptions = {
   origin: "http://localhost:4200",
 };
 app.use(cors(corsOptions));
+app.use(express.json())
 app.use(express.static(dir))
 
 // Routes

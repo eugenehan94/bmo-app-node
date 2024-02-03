@@ -3,7 +3,8 @@ productsTabs = [
     label: "Featured",
     cardData: [
       {
-        image: "assets/images/personal-special-offer-tile-picture.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-special-offer-tile-picture.jpg",
         imageAlt: "Special offers",
         title: "Special Offers",
         description:
@@ -48,7 +49,8 @@ productsTabs = [
         srcTitle: "Explore Now",
       },
       {
-        image: "assets/images/personal-award-tile-picture.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-award-tile-picture.jpg",
         imageAlt: "BMO ranked number one",
         title: "BMO ranked #1 for online banking",
         description:
@@ -62,7 +64,8 @@ productsTabs = [
     label: "Bank Accounts",
     cardData: [
       {
-        image: "assets/images/personal-hero-banner-one.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/hero/personal-hero-banner-one.jpg",
         imageAlt: "Special offers",
         title: "Get up to $1,200 in value",
         description:
@@ -106,7 +109,8 @@ productsTabs = [
         srcTitle: "Find out how",
       },
       {
-        image: "assets/images/personal-tile-bank-savings-amplifier.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-bank-savings-amplifier.jpg",
         imageAlt: "Savings amplifier",
         title: "Savings Amplifier Account",
         description:
@@ -120,7 +124,8 @@ productsTabs = [
     label: "Credit Cards",
     cardData: [
       {
-        image: "assets/images/personal-tile-eclipse-top-image.jpeg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-eclipse-top-image.jpeg",
         imageAlt: "Eclipse credit card",
         title:
           'BMO eclipse Visa Infinite* Card<a href="https://www.bmo.com/popups/main/personal/credit-cards/terms-and-conditions-en.html#footnote-66" target="_blank" rel="noopener" aria-label="Go to footnote 66 Terms and Conditions, opens in a new tab" class="superscript-link"><sup >66</sup></a>',
@@ -166,7 +171,8 @@ productsTabs = [
         srcTitle: "Learn more",
       },
       {
-        image: "assets/images/personal-tile-credit-cards.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-credit-cards.jpg",
         imageAlt: "Credit cards",
         title: "BMO CashBack® Mastercard®footnote*",
         description:
@@ -180,7 +186,8 @@ productsTabs = [
     label: "Mortgages",
     cardData: [
       {
-        image: "assets/images/personal-tile-mortgage.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-mortgage.jpg",
         imageAlt: "Eclipse credit card",
         title:
           "Lock in BMO's 130-day mortgage rate guarantee – the longest of any major Canadian bankfootnote dagger dagger<a href='https://www.bmo.com/main/personal/mortgages/' target='_blank' rel='noopener' class='superscript-link'><sup>††</sup></a>",
@@ -225,7 +232,8 @@ productsTabs = [
         srcTitle: "More details",
       },
       {
-        image: "assets/images/personal-tile-mortgages-homeowner-readiline.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-mortgages-homeowner-readiline.jpg",
         imageAlt: "Mortgage homeowner readiline",
         title: "Homeowner ReadiLine®",
         description:
@@ -239,7 +247,8 @@ productsTabs = [
     label: "Investments",
     cardData: [
       {
-        image: "assets/images/personal-tile-investments-rrsp.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-investments-rrsp.jpg",
         imageAlt: "Investments",
         title: "Coming soon: Tax-Free First Home Savings Account",
         description:
@@ -283,7 +292,8 @@ productsTabs = [
         srcTitle: "More details",
       },
       {
-        image: "assets/images/personal-tile-investments-image.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-investments-image.jpg",
         imageAlt: "Invest online",
         title: "Invest online and earn up to $3,100 in cashback*",
         description:
@@ -297,7 +307,8 @@ productsTabs = [
     label: "Learning",
     cardData: [
       {
-        image: "assets/images/personal-tile-financial-resources.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-financial-resources.jpg",
         imageAlt: "Financial resources",
         title: "Financial resources",
         description:
@@ -354,4 +365,4 @@ productsTabs = [
   },
 ];
 
-module.exports = {productsTabs};
+module.exports = { productsTabs };

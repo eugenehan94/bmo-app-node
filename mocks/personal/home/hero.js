@@ -1,6 +1,6 @@
 heroBannerOptions = [
   {
-    src: "assets/images/personal-hero-banner-one.jpg",
+    src: "http://localhost:5000/images/personal/home/hero/personal-hero-banner-one.jpg",
     alt: "Hero banner",
     title: "Get up to $1200 in value",
     description:
@@ -11,7 +11,7 @@ heroBannerOptions = [
     linkName: "Learn more",
   },
   {
-    src: "assets/images/personal-hero-banner-two.jpg",
+    src: "http://localhost:5000/images/personal/home/hero/personal-hero-banner-two.jpg",
     alt: "Hero banner",
     title:
       'Get up to $4,000 cash back<a href="https://www.bmo.com/popups/mortgages/spring-mortgage-offer-tnc-2023-en/" target="_blank" class="superscript-link"><sup class="superscript">†</sup></a>',
@@ -24,7 +24,7 @@ heroBannerOptions = [
     linkName: "Learn more",
   },
   {
-    src: "assets/images/personal-hero-banner-three.jpg",
+    src: "http://localhost:5000/images/personal/home/hero/personal-hero-banner-three.jpg",
     alt: "Hero banner",
     title: "More life with 5 times the points",
     description:
