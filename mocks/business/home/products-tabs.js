@@ -3,7 +3,8 @@ tabs = [
     label: "Featured",
     cardData: [
       {
-        image: "assets/images/business-tile-quick-flexible-top.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-quick-flexible-top.png",
         imageAlt: "Special offers",
         title:
           'Quick, flexible financing<sup class="superscript"><a href="https://www.bmo.com/main/business/loans-mortgages/credit-line/" target="_blank" aria-label="footnote 1, opens an external page in a new tab" class="superscript-link">1</a></sup>',
@@ -49,7 +50,8 @@ tabs = [
         srcTitle: "Get Started",
       },
       {
-        image: "assets/images/business-tile-celebrating-women.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-celebrating-women.png",
         imageAlt: "Celebrating women",
         title: "Celebrating women",
         description:
@@ -63,7 +65,8 @@ tabs = [
     label: "Bank Accounts",
     cardData: [
       {
-        image: "assets/images/business-tile-e-business.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-e-business.png",
         imageAlt: "Person in E commerce",
         title: "eBusiness Plan",
         description:
@@ -95,7 +98,8 @@ tabs = [
     label: "Credit Cards",
     cardData: [
       {
-        image: "assets/images/business-tile-credit-card-coffee.jpg",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-credit-card-coffee.jpg",
         imageAlt: "People in coffee shop",
         title: "Credit cards",
         description:
@@ -140,7 +144,8 @@ tabs = [
         srcTitle: "Learn More",
       },
       {
-        image: "assets/images/business-tile-world-elite-cc.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-world-elite-cc.png",
         imageAlt: "Person holding world elite credit card",
         title: "BMO World Elite®* Business Mastercard®*",
         description:
@@ -154,7 +159,8 @@ tabs = [
     label: "Lending",
     cardData: [
       {
-        image: "assets/images/business-tile-credit-line.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-credit-line.png",
         imageAlt: "Person looking into laptop screen",
         title: "Credit Line for Business",
         description:
@@ -199,7 +205,8 @@ tabs = [
         srcTitle: "Learn More",
       },
       {
-        image: "assets/images/business-tile-funding.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-funding.png",
         imageAlt: "Funding business",
         title: "Funding your small business",
         description:
@@ -213,7 +220,8 @@ tabs = [
     label: "Specialty",
     cardData: [
       {
-        image: "assets/images/business-tile-business-top.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-business-top.png",
         imageAlt: "Zero barriers to business",
         title: "Zero Barriers to Business",
         description:
@@ -258,7 +266,8 @@ tabs = [
         srcTitle: "Subscribe",
       },
       {
-        image: "assets/images/business-tile-best-practice.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-best-practice.png",
         imageAlt: "Best practices for resilience and well-being",
         title: "Best practices for resilience and well-being",
         description:
@@ -272,7 +281,8 @@ tabs = [
     label: "Learning",
     cardData: [
       {
-        image: "assets/images/business-tile-resource-hub.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-resource-hub.png",
         imageAlt: "Explore our Business Resource Hub",
         title: "Explore our Business Resource Hub",
         description:
@@ -317,7 +327,8 @@ tabs = [
         srcTitle: "Learn More",
       },
       {
-        image: "assets/images/business-tile-tax-101.png",
+        image:
+          "http://localhost:5000/images/business/home/products-tabs/business-tile-tax-101.png",
         imageAlt: "Taxes 101: a helpful guide to get you started",
         title: "Taxes 101: a helpful guide to get you started",
         description: "Keep your costs to a minimum and avoid penalties.",

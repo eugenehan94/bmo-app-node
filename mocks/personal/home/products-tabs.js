@@ -353,7 +353,8 @@ productsTabs = [
         srcTitle: "More details",
       },
       {
-        image: "assets/images/personal-tile-learning-podcast.jpg",
+        image:
+          "http://localhost:5000/images/personal/home/products-tabs/personal-tile-learning-podcast.jpg",
         imageAlt: "Learning podcast",
         title: "Fueling progress with our podcasts",
         description:

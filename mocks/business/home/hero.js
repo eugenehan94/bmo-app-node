@@ -1,6 +1,6 @@
 heroBannerOptions = [
   {
-    src: "assets/images/business-hero-banner-one.jpg",
+    src: "http://localhost:5000/images/business/home/hero/business-hero-banner-one.jpg",
     alt: "Hero banner",
     title: "Earn more BMO Rewards points",
     description:
@@ -11,7 +11,7 @@ heroBannerOptions = [
     linkName: "Learn more",
   },
   {
-    src: "assets/images/business-hero-banner-two.jpg",
+    src: "http://localhost:5000/images/business/home/hero/business-hero-banner-two.jpg",
     alt: "Hero banner",
     title: "The eBusiness Plan makes banking easy",
     description: "with no minimum balance and no monthly fees",

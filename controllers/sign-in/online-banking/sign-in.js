@@ -1,21 +1,3 @@
-const { footerContentOne, footerContentTwo } = require("../../mocks/sign-in");
-
-const getFooterContentOne = async (req, res, next) => {
-  try {
-    res.status(200).json(footerContentOne);
-  } catch (error) {
-    res.status(500).json({ msg: "error" });
-  }
-};
-
-const getFooterContentTwo = async (req, res, next) => {
-  try {
-    res.status(200).json(footerContentTwo);
-  } catch (error) {
-    res.status(500).json({ msg: "error" });
-  }
-};
-
 const validateLogin = async (req, res, next) => {
   const testerCardNumber = 12;
   const testerPassword = "q";
@@ -34,7 +16,5 @@ const validateLogin = async (req, res, next) => {
 };
 
 module.exports = {
-  getFooterContentOne,
-  getFooterContentTwo,
   validateLogin,
 };
