@@ -1,15 +1,25 @@
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+// Static tester account
+const testerCardNumber = "12";
+const testerPassword = "q";
+const salt = bcrypt.genSaltSync(10);
+const hashTesterCardNumber = bcrypt.hashSync(testerCardNumber, salt);
+const hashTesterPassword = bcrypt.hashSync(testerPassword, salt);
+
+// @TODO: Just for testing purposes - place in config file when DB setup complete
+const privateKey = "OSBlqxHWi8lwU8HSvLsr0nRxiYpxOWe8";
+
 const validateLogin = async (req, res, next) => {
-  const testerCardNumber = 12;
-  const testerPassword = "q";
-  console.log("req body: ", req.body);
-  console.log("TEST: ", req.body.cardNumber === testerCardNumber);
-  console.log("TEST2: ", req.body.password === testerPassword);
-  console.log("TEST2 type: ", req.body.password);
+  const { cardNumber, password } = req.body;
+  const hashCardNumber = bcrypt.hashSync(String(cardNumber), salt);
+  const hashPassword = bcrypt.hashSync(password, salt);
   if (
-    req.body.cardNumber === testerCardNumber &&
-    req.body.password === testerPassword
+    hashCardNumber === hashTesterCardNumber &&
+    hashPassword === hashTesterPassword
   ) {
-    return res.status(200).json({ msg: "correct" });
+    const token = jwt.sign({ test: "test" }, privateKey, { expiresIn: "1h" });
+    return res.status(200).json({ token });
   } else {
     return res.status(401).json({ msg: "Invalid credentials" });
   }
