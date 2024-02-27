@@ -19,7 +19,8 @@ const validateLogin = async (req, res, next) => {
     hashPassword === hashTesterPassword
   ) {
     const token = jwt.sign({ test: "test" }, privateKey, { expiresIn: "1h" });
-    return res.status(200).json({ token });
+    req.session.token = token;
+    return res.status(200).json({ token, user: "tester" });
   } else {
     return res.status(401).json({ msg: "Invalid credentials" });
   }
