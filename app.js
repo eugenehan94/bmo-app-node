@@ -11,6 +11,7 @@ const dir = path.join(__dirname, "public");
 // Enabling CORS for some specific origins only.
 let corsOptions = {
   origin: "http://localhost:4200",
+  credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
