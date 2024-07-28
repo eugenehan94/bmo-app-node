@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 const path = require("path");
 const cookieSession = require("cookie-session");
 const dir = path.join(__dirname, "public");
+
 // Enabling CORS for some specific origins only.
 let corsOptions = {
   origin: "http://localhost:4200",
