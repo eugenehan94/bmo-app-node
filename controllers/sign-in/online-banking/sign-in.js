@@ -26,15 +26,26 @@ const validateLogin = async (req, res, next) => {
       if (result.length >= 1) {
         let passwordDb = result.map(({ Password }) => Password).toString();
         let user = result[0];
+        let userAccounts;
         delete user.Password;
         if (passwordDb === password) {
           const token = jwt.sign({ test: "test" }, privateKey, {
             expiresIn: "1h",
           });
-          // From cookie-session library - adds token to HttpOnly cookie
-          req.session.token = token;
-          // @TODO: dont sent token back - only for setting up purpose for now
-          return res.status(200).json({ token, user: user });
+
+          mySqlConnection.query(
+            `SELECT * FROM bmo_project.accounts WHERE CustomerID = ${user.CustomerID}`,
+            (error, result) => {
+              userAccounts = result;
+              // From cookie-session library - adds token to HttpOnly cookie
+              req.session.token = token;
+              // @TODO: dont sent token back - only for setting up purpose for now
+              console.log("before return: ", userAccounts);
+              return res
+                .status(200)
+                .json({ token, user: user, userAccounts: userAccounts });
+            }
+          );
         } else {
           return res.status(401).json({ msg: "Invalid credentials" });
         }
