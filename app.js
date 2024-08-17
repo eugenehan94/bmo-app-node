@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 const path = require("path");
 const cookieSession = require("cookie-session");
 const dir = path.join(__dirname, "public");
+const cookieParser = require("cookie-parser");
 
 // Enabling CORS for some specific origins only.
 let corsOptions = {
@@ -17,6 +18,7 @@ let corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(dir));
+
 app.use(
   cookieSession({
     name: "tester-session",
@@ -24,7 +26,7 @@ app.use(
     httpOnly: true,
   })
 );
-
+app.use(cookieParser());
 // Routes
 app.use("/api/v1/personal/home", personal);
 app.use("/api/v1/business/home", business);

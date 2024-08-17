@@ -29,7 +29,7 @@ const validateLogin = async (req, res, next) => {
         let userAccounts;
         delete user.Password;
         if (passwordDb === password) {
-          const token = jwt.sign({ test: "test" }, privateKey, {
+          const token = jwt.sign({ test: req.body }, privateKey, {
             expiresIn: "1h",
           });
 
@@ -39,6 +39,14 @@ const validateLogin = async (req, res, next) => {
               userAccounts = result;
               // From cookie-session library - adds token to HttpOnly cookie
               req.session.token = token;
+              // The code above seems to malform the jwt, the one below doesn't
+              // @TODO see if we can remove the req.session.token and refactor as well
+              res.cookie("jwt", token, {
+                httpOnly: true,
+                sameSite: "strict",
+                maxAge: 3600000,
+              });
+
               // @TODO: dont sent token back - only for setting up purpose for now
               console.log("before return: ", userAccounts);
               return res
@@ -79,8 +87,29 @@ const verifyCookieExist = async (req, res, next) => {
   }
 };
 
+// Checking if HttpCookie is present with token using cookie-parser middleware
+const verifyCookieExistV2 = async (req, res, next) => {
+  const cookieName = "tester-session";
+  console.log("signed:", req.cookies);
+  jwt.verify(req.cookies["jwt"], privateKey, (err, user) => {
+    if (err) {
+      console.log("error: ", err);
+    }
+    console.log("no error: ", user);
+    let decode = jwt.decode(req.cookies["jwt"], { complete: true });
+    console.log("decode: ", decode);
+  });
+
+  if (req.cookies[cookieName]) {
+    return res.status(200).send(true);
+  } else {
+    return res.status(200).send(false);
+  }
+};
+
 const logout = async (req, res, next) => {
   req.session = null;
+  res.clearCookie("jwt");
   return res.status(200).json({});
 };
 
@@ -88,4 +117,5 @@ module.exports = {
   validateLogin,
   logout,
   verifyCookieExist,
+  verifyCookieExistV2,
 };

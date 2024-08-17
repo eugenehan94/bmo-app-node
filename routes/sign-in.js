@@ -8,6 +8,7 @@ const {
   validateLogin,
   logout,
   verifyCookieExist,
+  verifyCookieExistV2,
 } = require("../controllers/sign-in/online-banking/sign-in");
 
 const {
@@ -16,6 +17,7 @@ const {
 
 router.get("/footer/content-one", getFooterContentOne);
 router.get("/footer/content-two", getFooterContentTwo);
+router.get("/verifyCookieExistV2", verifyCookieExistV2);
 router.post("/", validateLogin);
 router.post("/logout", logout);
 router.post("/verifyCookieExist", verifyCookieExist);
