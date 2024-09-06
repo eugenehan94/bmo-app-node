@@ -4,6 +4,7 @@ const cors = require("cors");
 const personal = require("./routes/personal");
 const business = require("./routes/business");
 const login = require("./routes/sign-in");
+const openAccount = require("./routes/open-account");
 const port = process.env.PORT || 5000;
 const path = require("path");
 const cookieSession = require("cookie-session");
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.use("/api/v1/personal/home", personal);
 app.use("/api/v1/business/home", business);
 app.use("/api/v1/sign-in", login);
+app.use("/api/v1/open-account", openAccount);
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
