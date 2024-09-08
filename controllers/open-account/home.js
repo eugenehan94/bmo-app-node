@@ -13,7 +13,6 @@ const generateRandomText = (length) => {
 const createAccount = async (req, res, next) => {
   try {
     const { firstName, lastName } = req.body;
-    console.log("firstName: ", firstName, " lastName: ", lastName);
 
     let randomPassword = generateRandomText(4);
     let randomCardNumber = await uniqueCardNumber();
@@ -30,22 +29,34 @@ const createAccount = async (req, res, next) => {
     // Get Id from database and create two random accounts with random amounts
     mySqlConnection.query(
       `SELECT CustomerID FROM bmo_project.customer WHERE CardNumber =${randomCardNumber} `,
-      (error1, results1) => {
+      async (error1, results1) => {
         if (error1) {
           throw error1;
         }
         let randomAmountOne = Math.floor(Math.random() * 1000) + 1;
         let randomAmountTwo = Math.floor(Math.random() * 100) + 1;
-        //
-        console.log("result1: ", results1);
-        console.log("result1: ", results1[0].CustomerID);
-        // mySqlConnection.query(
-        //   `INSERT INTO bmo_project.accounts (CustomerID, Amount, AccountType, AccountNumber) VALUES (${results1}, ${randomAmountOne}, 'Chequing', 1234 )`
-        // );
+        let randomAccountNumber = await uniqueAccountNumber();
+        let randomAccountNumberTwo = await uniqueAccountNumber();
 
-        // mySqlConnection.query(
-        //   `INSERT INTO bmo_project.accounts (CustomerID, Amount, AccountType, AccountNumber) VALUES (${results1}, ${randomAmountTwo}, 'Saving', 1234 )`
-        // );
+        mySqlConnection.query(
+          `INSERT INTO bmo_project.accounts (CustomerID, Amount, AccountType, AccountNumber) VALUES (${results1[0].CustomerID}, ${randomAmountOne}, 'Chequing', '${randomAccountNumber}' )`,
+          (error, result) => {
+            if (error) {
+              console.log("error: ", error);
+              throw error;
+            }
+          }
+        );
+
+        mySqlConnection.query(
+          `INSERT INTO bmo_project.accounts (CustomerID, Amount, AccountType, AccountNumber) VALUES (${results1[0].CustomerID}, ${randomAmountTwo}, 'Saving', '${randomAccountNumberTwo}' )`,
+          (error, result) => {
+            if (error) {
+              console.log("error: ", error);
+              throw error;
+            }
+          }
+        );
       }
     );
     res.status(200).json({ msg: "User created" });
@@ -79,6 +90,36 @@ const uniqueCardNumber = async () => {
             }
           }
           resolve(randomCardNumber);
+        }
+      }
+    );
+  });
+};
+
+const uniqueAccountNumber = async () => {
+  let randomAccountNumber;
+
+  return new Promise((resolve, reject) => {
+    mySqlConnection.query(
+      `SELECT AccountNumber FROM bmo_project.accounts`,
+      (error, result) => {
+        if (error) {
+          throw error;
+          reject(error);
+        } else {
+          let isUnique = false;
+          while (!isUnique) {
+            randomAccountNumber = Math.floor(Math.random() * 100000) + 1;
+            for (let i = 0; i < result.length; i++) {
+              if (result[i].AccountNumber === randomAccountNumber) {
+                isUnique = false;
+                break;
+              } else {
+                isUnique = true;
+              }
+            }
+          }
+          resolve(randomAccountNumber);
         }
       }
     );
