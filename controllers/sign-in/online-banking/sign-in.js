@@ -17,8 +17,9 @@ const validateLogin = async (req, res, next) => {
     `SELECT * FROM bmo_project.customer WHERE CardNumber = ${cardNumber}`,
     (error, result) => {
       if (error) {
-        console.log("Error");
-        throw error;
+        res
+          .status(500)
+          .json({ error: "Database error", message: error.message });
       }
       if (result.length === 0) {
         return res.status(401).json({ msg: "Invalid credentials" });

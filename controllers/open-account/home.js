@@ -21,7 +21,9 @@ const createAccount = async (req, res, next) => {
       `INSERT INTO bmo_project.customer (LastName, FirstName, CardNumber, Password) VALUES ("${lastName}", "${firstName}", ${randomCardNumber}, "${randomPassword}")`,
       (error, result) => {
         if (error) {
-          console.log("error: ", error);
+          res
+            .status(500)
+            .json({ error: "Database error", message: error.message });
         }
       }
     );
@@ -31,7 +33,9 @@ const createAccount = async (req, res, next) => {
       `SELECT CustomerID FROM bmo_project.customer WHERE CardNumber =${randomCardNumber} `,
       async (error1, results1) => {
         if (error1) {
-          throw error1;
+          res
+            .status(500)
+            .json({ error: "Database error", message: error1.message });
         }
         let randomAmountOne = Math.floor(Math.random() * 1000) + 1;
         let randomAmountTwo = Math.floor(Math.random() * 100) + 1;
@@ -42,8 +46,9 @@ const createAccount = async (req, res, next) => {
           `INSERT INTO bmo_project.accounts (CustomerID, Amount, AccountType, AccountNumber) VALUES (${results1[0].CustomerID}, ${randomAmountOne}, 'Chequing', '${randomAccountNumber}' )`,
           (error, result) => {
             if (error) {
-              console.log("error: ", error);
-              throw error;
+              res
+                .status(500)
+                .json({ error: "Database error", message: error.message });
             }
           }
         );
@@ -52,7 +57,9 @@ const createAccount = async (req, res, next) => {
           `INSERT INTO bmo_project.accounts (CustomerID, Amount, AccountType, AccountNumber) VALUES (${results1[0].CustomerID}, ${randomAmountTwo}, 'Saving', '${randomAccountNumberTwo}' )`,
           (error, result) => {
             if (error) {
-              console.log("error: ", error);
+              res
+                .status(500)
+                .json({ error: "Database error", message: error.message });
               throw error;
             }
           }
@@ -73,7 +80,6 @@ const uniqueCardNumber = async () => {
       `SELECT CardNumber FROM bmo_project.customer`,
       (error, result) => {
         if (error) {
-          console.log("Error");
           reject(error);
         } else {
           let isUnique = false;
